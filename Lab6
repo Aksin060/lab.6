@@ -1,0 +1,23 @@
+import random
+
+n = int(input("Sətirlərin (n) sayını daxil edin: "))
+m = int(input("Sütunların (m) sayını daxil edin: "))
+
+A = [[random.randint(-10, 10) for _ in range(m)] for _ in range(n)]
+
+print("Yaradılmış massiv A(n, m):")
+for row in A:
+    print(row)
+
+print("\nHər sütun üzrə mənfi elementlərin hasili:")
+for col in range(m):
+    product = 1
+    has_negative = False
+    for row in range(n):
+        if A[row][col] < 0:
+            product *= A[row][col]
+            has_negative = True
+    if has_negative:
+        print(f"{col + 1}-ci sütun: {product}")
+    else:
+        print(f"{col + 1}-ci sütun: Mənfi element yoxdur.")
